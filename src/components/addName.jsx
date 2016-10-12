@@ -5,7 +5,7 @@ class AddName extends React.Component{
     return(
       <form onSubmit={ this.onSubmit.bind(this)}>
         <input ref="title" type="text" placeholder='First + Last name'/>
-        <button>Add</button>
+        <button style={ buttonStyle }>Add</button>
       </form>
     )  
   }
@@ -16,6 +16,13 @@ class AddName extends React.Component{
     this.refs.title.value = ''
   }
   
+}
+
+const buttonStyle ={
+  'background-color':'blue',
+   color : 'white'
+
+
 }
 
 export default AddName;

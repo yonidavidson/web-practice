@@ -18,7 +18,7 @@ export default class App extends React.Component {
   
   render() {
     return (
-      <div>
+      <div style={ divStyle }>
         <h1> List of names: </h1>
         <AddName addRecipe={ this.addRecipe.bind(this) }/>
         <Recipes recipes={ this.state.recipes } />
@@ -30,3 +30,8 @@ export default class App extends React.Component {
     this.setState({recipes: this.state.recipes.concat(title)})
   }
 }
+
+const divStyle = {
+  border: '1px solid green',
+  'background-color': 'lightblue'
+};
