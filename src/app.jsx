@@ -17,7 +17,7 @@ class AddName extends React.Component{
   render(){
     return(
       <form onSubmit={ this.onSubmit.bind(this)}>
-        <input ref="title" type="text"/>
+        <input ref="title" type="text" placeholder='First + Last name'/>
         <button>Add</button>
       </form>
     )  
