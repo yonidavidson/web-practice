@@ -19,10 +19,8 @@ class AddName extends React.Component{
 }
 
 const buttonStyle ={
-  'background-color':'blue',
+  'backgroundColor':'blue',
    color : 'white'
-
-
 }
 
 export default AddName;

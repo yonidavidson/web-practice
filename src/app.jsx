@@ -33,5 +33,5 @@ export default class App extends React.Component {
 
 const divStyle = {
   border: '1px solid green',
-  'background-color': 'lightblue'
+  'backgroundColor': 'lightblue'
 };
