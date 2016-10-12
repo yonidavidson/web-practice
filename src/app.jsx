@@ -7,12 +7,11 @@ const Recipe = ({ recipe }) => (
 
 const Recipes = ({ recipes }) => (
   <ul>
-    <Recipe recipe={ recipes[0] } />
-    <Recipe recipe={ recipes[1] } />
+    {recipes.map(recipe => <Recipe key={recipe} recipe={recipe}/>)}
   </ul>
 );
 
-const recipes = ['Waffles', 'Omelette'];
+const recipes = ['Andrew G', 'Eyal K'];
 
 export default class App extends React.Component {
   render() {
