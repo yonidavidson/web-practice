@@ -43,9 +43,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1> list of names ! </h1>
-        <Recipes recipes={ this.state.recipes } />
+        <h1> List of names: </h1>
         <AddName addRecipe={ this.addRecipe.bind(this) }/>
+        <Recipes recipes={ this.state.recipes } />
       </div>
     )
   }
