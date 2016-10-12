@@ -1,35 +1,11 @@
 import styles from './index.scss';
 import React from 'react';
 
-const Recipe = ({ recipe }) => (
-  <li>{ recipe }</li>
-);
-
-const Recipes = ({ recipes }) => (
-  <ul>
-    {recipes.map(recipe => <Recipe key={recipe} recipe={recipe}/>)}
-  </ul>
-);
+import Recipe from './components/recipe.jsx';
+import Recipes from './components/recipes.jsx';
+import AddName from './components/addName.jsx';
 
 const recipes = ['Andrew G', 'Eyal K', 'Yoni D'];
-
-class AddName extends React.Component{
-  render(){
-    return(
-      <form onSubmit={ this.onSubmit.bind(this)}>
-        <input ref="title" type="text" placeholder='First + Last name'/>
-        <button>Add</button>
-      </form>
-    )  
-  }
-
-  onSubmit(e){
-    e.preventDefault();
-    this.props.addRecipe(this.refs.title.value)
-    this.refs.title.value = ''
-  }
-  
-}
 
 export default class App extends React.Component {
   constructor(){
