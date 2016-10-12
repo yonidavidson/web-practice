@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Recipe = ({ recipe }) => (
+const Name = ({ name }) => (
   	<li>
   		<span style={ {display: 'inline-block', width: '100px'}}>
-  			{ recipe }
+  			{ name }
   		</span>
-  		{ buttons.map(b => <button style={ {margin:'10px'} }> {b} </button> ) }
+  		{ buttons.map(b => <button key={b} style={ {margin:'10px'} }> {b} </button> ) }
   	</li>
 );
 
 const buttons = ['edit', 'remove']
 
-export default Recipe;
+export default Name;

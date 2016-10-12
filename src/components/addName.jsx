@@ -12,7 +12,7 @@ class AddName extends React.Component{
 
   onSubmit(e){
     e.preventDefault();
-    this.props.addRecipe(this.refs.title.value)
+    this.props.addName(this.refs.title.value)
     this.refs.title.value = ''
   }
   
