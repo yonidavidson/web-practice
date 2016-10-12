@@ -1,15 +1,25 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './index.scss';
 import React from 'react';
+
+const Recipe = ({ recipe }) => (
+  <li>{ recipe }</li>
+);
+
+const Recipes = ({ recipes }) => (
+  <ul>
+    <Recipe recipe={ recipes[0] } />
+    <Recipe recipe={ recipes[1] } />
+  </ul>
+);
+
+const recipes = ['Waffles', 'Omelette'];
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>It Works!</h1>
-        <p>This React project just works including <span className={styles.blueBg}>module</span> local styles.</p>
-        <p>Global bootstrap css import works too as you can see on the following button.</p>
-        <p><a className="btn btn-primary btn-lg">Enjoy!</a></p>
+        <h1> list of names ! </h1>
+        <Recipes recipes={ recipes } />
       </div>
     )
   }

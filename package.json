@@ -16,7 +16,6 @@
   "license": "",
   "homepage": "",
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.3",
     "node-sass": "^3.9.2",
     "react": "15.3.0",
     "react-dom": "15.3.0",
