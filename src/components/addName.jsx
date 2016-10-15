@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
 class AddName extends React.Component{
   render(){
@@ -18,9 +19,13 @@ class AddName extends React.Component{
   
 }
 
+const mapDisptachToState = (disptach) =>({
+  addName: (title) => disptach({type: 'ADD_NAME', title})
+})
+
 const buttonStyle ={
   'backgroundColor':'blue',
    color : 'white'
 }
 
-export default AddName;
+export default connect(null, mapDisptachToState)(AddName);
