@@ -3,7 +3,6 @@ import React from 'react';
 
 import {Provider} from 'react-redux'
 
-import Name from './components/name.jsx';
 import Names from './components/names.jsx';
 import AddName from './components/addName.jsx';
 import store from './store/store.jsx'
