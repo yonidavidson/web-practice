@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import {addName} from '../actions/names.jsx'
 
 class AddName extends React.Component{
   render(){
@@ -23,4 +25,4 @@ const buttonStyle ={
    color : 'white'
 }
 
-export default AddName;
+export default connect(null, {addName})(AddName);

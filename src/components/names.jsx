@@ -1,10 +1,17 @@
 import React from 'react';
-import Recipe from './name.jsx';
+import {connect} from 'react-redux'
 
-const Names = ({ names }) => (
+import Name from './name.jsx';
+
+const Names = ({ names = [] }) => (
   <ul>
-    {names.map(name => <Recipe key={name} name={name}/>)}
+    {names.map(name => <Name key={name} name={name}/>)}
   </ul>
 );
 
-export default Names;
+const mapStateToProps = (state = { names: [] }) => ({
+	names : state.names
+})
+
+
+export default connect(mapStateToProps, null)(Names);
