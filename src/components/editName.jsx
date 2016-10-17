@@ -28,6 +28,7 @@ class EditName extends React.Component{
     e.preventDefault()
     this.props.editName({oldN: this.props.name, newN:this.refs.title.value})
     this.refs.title.value = ''
+    this.onClick(null)
   }
 }
 

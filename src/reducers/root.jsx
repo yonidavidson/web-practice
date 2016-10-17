@@ -9,7 +9,9 @@ const reducer = (state = initialState, action) => {
     case REMOVE_NAME:
     	return Object.assign({}, {names: state.names.filter(v => action.title !== v)})
     case EDIT_NAME:
-      console.log("EDIT_NAME:",action.title)
+      return Object.assign({}, {names: state.names.map(v => action.title.oldN === v ?
+        action.title.newN : v)
+      })
   }
   return state
 }
