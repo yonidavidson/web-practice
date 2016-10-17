@@ -1,7 +1,7 @@
 import React from 'react'
 
-const EditButton = ({}) => (
+const EditName = ({name}) => (
 	<button style={ {margin:'10px'} }> edit </button>
 )
 
-export default EditButton
+export default EditName

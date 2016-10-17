@@ -1,14 +1,15 @@
 import React from 'react';
 
-import RemoveButton from './removeButton.jsx'
-import EditButton from './editButton.jsx'
+import RemoveName from './removeName.jsx'
+import EditName from './editName.jsx'
 
 const Name = ({ name }) => (
   	<li>
   		<span style={ {display: 'inline-block', width: '100px'}}>
   			{ name }
   		</span>
-  		{[<EditButton/>, <RemoveButton/>]}
+  		<EditName name={name}/>
+  		<RemoveName name={name}/>
   	</li>
 );
 
