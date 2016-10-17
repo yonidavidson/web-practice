@@ -4,16 +4,17 @@ import {connect} from 'react-redux'
 class EditName extends React.Component{
   constructor(){
     super()
-    this.state = {edited : true}
+    this.state = {edited : false}
   }
   render(){
     return(
         <span>
           <button style={ {margin:'10px'} }  onClick={this.onClick.bind(this)}> edit </button>
-          <form>
+          {this.state.edited ?
+            <form>
             <input ref="title" type="text" placeholder={this.props.name}/>
             <button style={ buttonStyle }>apply</button>
-          </form>
+            </form>:<span/>}
         </span>
     )
   }
