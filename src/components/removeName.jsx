@@ -1,7 +1,17 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {removeName} from '../actions/names.jsx'
 
-const RemoveName = ({name}) => (
-	<button style={ {margin:'10px'} }> remove </button>
-)
+class RemoveName extends React.Component{
+  render(){
+    return(
+        <button style={ {margin:'10px'} }  onClick={this.onClick.bind(this)}> remove </button>      
+    )
+  }
 
-export default RemoveName
+  onClick(e){
+      this.props.removeName(this.props.name)
+  }
+}
+
+export default connect(null,{removeName})(RemoveName)
