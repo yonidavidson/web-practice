@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {editName} from '../actions/names.jsx'
 
 class EditName extends React.Component{
   constructor(){
@@ -11,7 +12,7 @@ class EditName extends React.Component{
         <span>
           <button style={ {margin:'10px'} }  onClick={this.onClick.bind(this)}> edit </button>
           {this.state.edited ?
-            <form>
+            <form onSubmit={ this.onSubmit.bind(this)}>
             <input ref="title" type="text" placeholder={this.props.name}/>
             <button style={ buttonStyle }>apply</button>
             </form>:<span/>}
@@ -20,8 +21,13 @@ class EditName extends React.Component{
   }
 
   onClick(e){
-  	console.log(this.state.edited)
     this.setState({edited: !this.state.edited})
+  }
+
+  onSubmit(e){
+    e.preventDefault()
+    this.props.editName({oldN: this.props.name, newN:this.refs.title.value})
+    this.refs.title.value = ''
   }
 }
 
@@ -30,4 +36,4 @@ const buttonStyle ={
    color : 'white'
 }
 
-export default EditName
+export default connect(null, {editName})(EditName)
