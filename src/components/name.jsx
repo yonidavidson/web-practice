@@ -1,14 +1,15 @@
 import React from 'react';
 
+import RemoveButton from './removeButton.jsx'
+import EditButton from './editButton.jsx'
+
 const Name = ({ name }) => (
   	<li>
   		<span style={ {display: 'inline-block', width: '100px'}}>
   			{ name }
   		</span>
-  		{ buttons.map(b => <button key={b} style={ {margin:'10px'} }> {b} </button> ) }
+  		{[<EditButton/>, <RemoveButton/>]}
   	</li>
 );
-
-const buttons = ['edit', 'remove']
 
 export default Name;
