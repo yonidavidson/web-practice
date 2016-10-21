@@ -3,7 +3,7 @@ import reducer from '../reducers/root.jsx'
 
 
 const initialState = {
-  names: ['Andrew G', 'Eyal K', 'Yoni D']
+  names: []
 }
 
 
