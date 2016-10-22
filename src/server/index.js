@@ -9,6 +9,12 @@ let db = ["Fortuna", "Moka", "Karashindo" , "Tyron"];
 
 app.use(bodyParser.json())
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    return next()
+})
+
+
 app.get('/', (req, res) => res.send('Version:' + VERSION))
 
 app.get('/names', (req, res) => res.send(db))
@@ -42,5 +48,6 @@ app.delete('/names/:id', (req, res) => {
 	}
 	res.status(404).send()
 })
+
 
 app.listen(PORT, () => console.log('server started on PORT:', PORT));

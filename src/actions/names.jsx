@@ -24,8 +24,22 @@ export const getNames = (title) => ({
 })
 
 
-export const fetchNames = () => {
-	return (dispatch) => {
-		dispatch(getNames())	
+export const fetchNames = () => {	
+	return function (disptach) {
+		fetch('http://127.0.0.1:3000/names')
+		.then(status)
+		.then(json)
+		.then(data => disptach(getNames(data)))
+		.catch(err => console.log(err))
 	}
 }
+
+const status = response => {
+	if (response.status >= 200 && response.status < 300) {  
+		return Promise.resolve(response)  
+	} else {  
+		return Promise.reject(new Error(response.statusText))  
+	}	
+}
+
+const json = response => response.json()

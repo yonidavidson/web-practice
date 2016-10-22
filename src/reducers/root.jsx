@@ -1,5 +1,4 @@
 import {ADD_NAME, REMOVE_NAME, EDIT_NAME, GET_NAMES} from '../consts/action-types.jsx'
-import {getNames} from '../utils/server.jsx'
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,8 +13,7 @@ const reducer = (state = initialState, action) => {
         action.title.newN : v)
       })
     case GET_NAMES:
-      const data = getNames()
-      return Object.assign({}, {names: data})
+      return Object.assign({}, {names: action.title})
   }
   return state
 }
