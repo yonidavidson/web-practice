@@ -53,7 +53,7 @@ export const postName = (name) =>{
 
 export const deleteName = (name) => {
 	return function(disptach){
-		const url = 'http://127.0.0.1:3000/names/' + name
+		const url = encodeURI('http://127.0.0.1:3000/names/' + name)
 		fetch(url,{
 			method: 'delete'
 		})
@@ -66,7 +66,7 @@ export const deleteName = (name) => {
 export const changeName = (data) => {
 	const payload = JSON.stringify({name: data.newN})
 	return function(dispatch){
-		const url = 'http://127.0.0.1:3000/names/' + data.oldN 
+		const url = encodeURI('http://127.0.0.1:3000/names/' + data.oldN )
 		fetch(url ,{
 			headers: {
 				'Accept': 'application/json',

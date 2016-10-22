@@ -37,7 +37,7 @@ app.post('/names', (req, res) =>{
 
 app.put('/names/:id', (req, res) => {
 	const name = req.body.name
-	const id = req.params.id
+	const id = decodeURI(req.params.id)
 	db = db.filter( v => v !== id)
 	db = db.filter( v => v !== name)
 	db = db.concat(name)
@@ -45,7 +45,7 @@ app.put('/names/:id', (req, res) => {
 })
 
 app.delete('/names/:id', (req, res) => {
-	const id = req.params.id
+	const id = decodeURI(req.params.id)
 	if (db.includes(id)){
 		db = db.filter( v => v !== id )
 		res.send()
