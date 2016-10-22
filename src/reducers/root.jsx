@@ -1,5 +1,5 @@
 import {ADD_NAME, REMOVE_NAME, EDIT_NAME, GET_NAMES} from '../consts/action-types.jsx'
-import {getNames} from '../server/server.jsx'
+import {getNames} from '../utils/server.jsx'
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
