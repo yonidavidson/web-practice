@@ -7,10 +7,10 @@ describe('Server tests', () => {
 	it('should get'+ VERSION_RESPONSE, (done) => {
 		request.
 		get('/').
-		expect(200, VERSION_RESPONSE, done);
+		expect(200, VERSION_RESPONSE, done)
 	})
 
-	it ('should get list of names', (done) =>{
+	it('should get list of names', (done) =>{
 		request.
 		get('/names').
 		expect(200).
@@ -23,6 +23,20 @@ describe('Server tests', () => {
 			done()	
 		})
 
+	})
+
+	it('should add a name', (done) => {
+		request.
+		post('/names').
+		expect(201).
+		end((err, response) => {
+			if (err) {
+				throw err
+			}
+			expect(response.header).to.have.property('location','/names/testName')
+			done()
+		})
+		
 	})
 
 //end of tests
