@@ -1,6 +1,4 @@
 
-const tmpDB = ['Andrew G', 'Eyal K', 'Yoni D']
-
 export const addName = (name) => {
 	tmpDB.includes(name) ? tmpDB : tmpDb.concat(name)
 }

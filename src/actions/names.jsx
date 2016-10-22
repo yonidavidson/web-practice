@@ -25,12 +25,29 @@ export const getNames = (title) => ({
 
 
 export const fetchNames = () => {	
-	return function (disptach) {
+	return function (dispatch) {
 		fetch('http://127.0.0.1:3000/names')
 		.then(status)
 		.then(json)
-		.then(data => disptach(getNames(data)))
+		.then(data => dispatch(getNames(data)))
 		.catch(err => console.log(err))
+	}
+}
+
+export const postName = (name) =>{
+	return function(dispatch){
+		const payload = JSON.stringify({name: name})
+		fetch('http://127.0.0.1:3000/names',{
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			method: 'post',
+			body: payload
+		})
+		.then(status)
+		.then(dispatch(addName(name)))
+		.catch(err => console.log('failed to post name to server:', err))		
 	}
 }
 
