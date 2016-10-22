@@ -63,6 +63,24 @@ export const deleteName = (name) => {
 	}
 }
 
+export const changeName = (data) => {
+	const payload = JSON.stringify({name: data.newN})
+	return function(dispatch){
+		const url = 'http://127.0.0.1:3000/names/' + data.oldN 
+		fetch(url ,{
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			method: 'put',
+			body: payload
+		})
+		.then(status)
+		.then(dispatch(editName(data)))
+		.catch(err => console.log('failed to edit name on server:', err))
+	}
+}
+
 const status = response => {
 	if (response.status >= 200 && response.status < 300) {  
 		return Promise.resolve(response)  

@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const expressLogging = require('express-logging')
+const logger = require('logops');
 
 const PORT = 3000;
 const VERSION = 1;
@@ -8,6 +10,7 @@ const VERSION = 1;
 let db = ["Fortuna", "Moka", "Karashindo" , "Tyron"];
 
 app.use(bodyParser.json())
+app.use(expressLogging(logger))
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
@@ -43,7 +46,6 @@ app.put('/names/:id', (req, res) => {
 
 app.delete('/names/:id', (req, res) => {
 	const id = req.params.id
-	console.log(id)
 	if (db.includes(id)){
 		db = db.filter( v => v !== id )
 		res.send()
