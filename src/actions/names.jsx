@@ -51,6 +51,18 @@ export const postName = (name) =>{
 	}
 }
 
+export const deleteName = (name) => {
+	return function(disptach){
+		const url = 'http://127.0.0.1:3000/names/' + name
+		fetch(url,{
+			method: 'delete'
+		})
+		.then(status)
+		.then(disptach(removeName(name)))
+		.catch(err => console.log('failed to remove name from server:', err))
+	}
+}
+
 const status = response => {
 	if (response.status >= 200 && response.status < 300) {  
 		return Promise.resolve(response)  
