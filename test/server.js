@@ -7,6 +7,7 @@ describe('Server tests', () => {
 	const NAME_1 = 'lola'
 	const NAME_2 = 'buffy'
 	const NAME_3 = 'sasha'
+	const BASE = ["Fortuna", "Moka", "Karashindo" , "Tyron"]
 
 	it('should get'+ VERSION_RESPONSE, (done) => {
 		request.
@@ -85,6 +86,21 @@ describe('Server tests', () => {
 		send().
 		expect(404,'', done)
 	})
+
+	it('check server state', (done) =>{
+		request.
+		get('/names').
+		expect(200).
+		end((err, response) =>{
+			if (err) {
+				throw err
+			}
+			expect(response.body).to.be.instanceof(Array)
+			expect(response.body).to.have.members(BASE.concat(NAME_1))
+			done()	
+		})
+
+	})	
 
 //end of tests
 })
