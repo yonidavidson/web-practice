@@ -4,7 +4,10 @@ const request = require('supertest')('http://localhost:3000');
 
 describe('Server tests', () => {
 	const VERSION_RESPONSE = "Version:1"
-	const NAME_1 = "lola"
+	const NAME_1 = 'lola'
+	const NAME_2 = 'buffy'
+	const NAME_3 = 'sasha'
+
 	it('should get'+ VERSION_RESPONSE, (done) => {
 		request.
 		get('/').
@@ -45,7 +48,42 @@ describe('Server tests', () => {
 		request.
 		post('/names').
 		send({name: NAME_1}).
-		expect(409,'',done)
+		expect(409,'', done)
+	})
+
+	it('should add value using PUT as well', (done) => {
+		request.
+		put(/names/+ NAME_2).
+		send({name: NAME_2}).
+		expect(204, '', done)
+	})
+
+	it('should allow to put same value', (done) => {
+		request.
+		put(/names/+ NAME_2).
+		send({name: NAME_2}).
+		expect(204, '', done)
+	})
+
+	it('should update value', (done) => {
+		request.
+		put(/names/+ NAME_2).
+		send({name: NAME_3}).
+		expect(204, '', done)
+	})
+
+	it('should delete value',(done) => {
+		request.
+		delete(/names/+ NAME_3).
+		send().
+		expect(200,'', done)
+	})
+
+	it('should fail to delete not existing value',(done) => {
+		request.
+		delete(/names/+ NAME_3).
+		send().
+		expect(404,'', done)
 	})
 
 //end of tests

@@ -24,4 +24,23 @@ app.post('/names', (req, res) =>{
 	}
 })
 
+app.put('/names/:id', (req, res) => {
+	const name = req.body.name
+	const id = req.params.id
+	db = db.filter( v => v !== id)
+	db = db.filter( v => v !== name)
+	db = db.concat(name)
+	res.status(204).send()
+})
+
+app.delete('/names/:id', (req, res) => {
+	const id = req.params.id
+	console.log(id)
+	if (db.includes(id)){
+		db = db.filter( v => v !== id )
+		res.send()
+	}
+	res.status(404).send()
+})
+
 app.listen(PORT, () => console.log('server started on PORT:', PORT));
