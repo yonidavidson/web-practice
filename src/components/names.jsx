@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {getNames} from '../actions/names.jsx'
+import {fetchNames} from '../actions/names.jsx'
 
 import Name from './name.jsx';
 
 class Names extends React.Component{
 	componentDidMount() {
-    	this.props.getNames();
+    	this.props.fetchNames();
   	}
 	render(){
 		return(
@@ -22,4 +22,4 @@ const mapStateToProps = (state = { names: [] }) => ({
 })
 
 
-export default connect(mapStateToProps, {getNames})(Names);
+export default connect(mapStateToProps, {fetchNames})(Names);

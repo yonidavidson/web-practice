@@ -22,3 +22,10 @@ export const getNames = (title) => ({
 	type: GET_NAMES,
 	title
 })
+
+
+export const fetchNames = () => {
+	return (dispatch) => {
+		dispatch(getNames())	
+	}
+}
