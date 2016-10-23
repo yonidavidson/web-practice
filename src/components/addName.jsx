@@ -14,7 +14,7 @@ class AddName extends React.Component{
 
   onSubmit(e){
     e.preventDefault();
-    this.props.postName(this.refs.title.value)
+    this.refs.title.value === '' ? true : this.props.postName(this.refs.title.value)
     this.refs.title.value = ''
   }
   

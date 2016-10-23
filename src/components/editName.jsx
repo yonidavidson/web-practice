@@ -26,7 +26,7 @@ class EditName extends React.Component{
 
   onSubmit(e){
     e.preventDefault()
-    this.props.changeName({oldN: this.props.name, newN:this.refs.title.value})
+    this.refs.title.value === '' ? true : this.props.changeName({oldN: this.props.name, newN:this.refs.title.value})
     this.refs.title.value = ''
     this.onClick(null)
   }
