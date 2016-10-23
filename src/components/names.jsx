@@ -11,7 +11,10 @@ class Names extends React.Component{
 	render(){
 		return(
 			<ul>
-			{this.props.names.map(name => <Name key={name} name={name}/>)}
+			{this.props.names.length > 0 ?
+			 this.props.names.map(name => <Name key={name} name={name}/>) :
+			 <img src="https://i.imgflip.com/ntnjb.jpg"/>
+			}
 			</ul>
 			)
 	}
