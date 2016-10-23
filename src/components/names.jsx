@@ -13,7 +13,7 @@ class Names extends React.Component{
 			<ul>
 			{this.props.names.length > 0 ?
 			 this.props.names.map(name => <Name key={name} name={name}/>) :
-			 <img src="https://i.imgflip.com/ntnjb.jpg"/>
+			 <img src="https://cdn.meme.am/instances/500x/41321290.jpg"/>
 			}
 			</ul>
 			)
