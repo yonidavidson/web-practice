@@ -5,10 +5,11 @@
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
-    "start": "webpack-dev-server --progress --profile --colors",
+    "start-client": "webpack-dev-server --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0",
-    "server-start": "node ./src/server/index.js",
-    "test": "./node_modules/.bin/mocha"
+    "start-server": "node ./src/server/index.js",
+    "test": "./node_modules/.bin/mocha",
+    "start": "npm-run-all --parallel start-client start-server"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "file-loader": "0.9.0",
     "html-webpack-plugin": "^2.22.0",
     "mocha": "^3.1.2",
+    "npm-run-all": "^3.1.1",
     "react-hot-loader": "1.3.0",
     "style-loader": "0.13.1",
     "supertest": "^2.0.1",
