@@ -1,4 +1,4 @@
-# react-webpack-babel
+# Simple web client and server
 Simple 'React-Redux' app with an 'Express' server
 
 ### What's in it?
