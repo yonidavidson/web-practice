@@ -46,7 +46,9 @@ export const postName = (name) =>{
 			body: payload
 		})
 		.then(status)
-		.then(dispatch(addName(name)))
+		.then(  response => dispatch(addName(name)) ,
+			err => console.log("error adding name")
+			)
 		.catch(err => console.log('failed to post name to server:', err))		
 	}
 }
@@ -58,7 +60,9 @@ export const deleteName = (name) => {
 			method: 'delete'
 		})
 		.then(status)
-		.then(disptach(removeName(name)))
+		.then(response => disptach(removeName(name)),
+			err => console.log("error deleting")
+			)
 		.catch(err => console.log('failed to remove name from server:', err))
 	}
 }
@@ -76,7 +80,9 @@ export const changeName = (data) => {
 			body: payload
 		})
 		.then(status)
-		.then(dispatch(editName(data)))
+		.then(dispatch(response => editName(data)),
+			err => console.log("error editing name")
+			)
 		.catch(err => console.log('failed to edit name on server:', err))
 	}
 }
