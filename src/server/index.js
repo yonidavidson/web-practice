@@ -13,10 +13,10 @@ app.use(bodyParser.json())
 app.use(expressLogging(logger))
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-    res.setHeader("Access-Control-Allow-Headers", "Accept, Content-Type")
-    return next()
+	res.setHeader("Access-Control-Allow-Origin", "*")
+	res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+	res.setHeader("Access-Control-Allow-Headers", "Accept, Content-Type")
+	return next()
 })
 
 
@@ -38,10 +38,16 @@ app.post('/names', (req, res) =>{
 app.put('/names/:id', (req, res) => {
 	const name = req.body.name
 	const id = decodeURI(req.params.id)
-	db = db.filter( v => v !== id)
-	db = db.filter( v => v !== name)
-	db = db.concat(name)
-	res.status(204).send()
+	//trying to update to an allready existing value
+	if( (name !== id) && db.includes(name)){
+		res.status(409).send()
+	}else{
+		db = db.filter( v => v !== id)
+		db = db.filter( v => v !== name)
+		db = db.concat(name)
+		res.status(204).send()
+	}
+	
 })
 
 app.delete('/names/:id', (req, res) => {
