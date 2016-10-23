@@ -66,6 +66,13 @@ describe('Server tests', () => {
 		expect(204, '', done)
 	})
 
+	it ('should fail to update to existing value', (done) =>{
+		request.
+		put(/names/+ NAME_2).
+		send({name: NAME_1}).
+		expect(409,'',done)
+	})
+
 	it('should update value', (done) => {
 		request.
 		put(/names/+ NAME_2).

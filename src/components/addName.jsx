@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {addName} from '../actions/names.jsx'
+import {postName} from '../actions/names.jsx'
 
 class AddName extends React.Component{
   render(){
@@ -14,7 +14,7 @@ class AddName extends React.Component{
 
   onSubmit(e){
     e.preventDefault();
-    this.props.addName(this.refs.title.value)
+    this.props.postName(this.refs.title.value)
     this.refs.title.value = ''
   }
   
@@ -25,4 +25,4 @@ const buttonStyle ={
    color : 'white'
 }
 
-export default connect(null, {addName})(AddName);
+export default connect(null, {postName})(AddName);

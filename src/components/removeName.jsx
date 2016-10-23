@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {removeName} from '../actions/names.jsx'
+import {deleteName} from '../actions/names.jsx'
 
 class RemoveName extends React.Component{
   render(){
@@ -10,8 +10,8 @@ class RemoveName extends React.Component{
   }
 
   onClick(e){
-      this.props.removeName(this.props.name)
+      this.props.deleteName(this.props.name)
   }
 }
 
-export default connect(null,{removeName})(RemoveName)
+export default connect(null,{deleteName})(RemoveName)
